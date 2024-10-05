@@ -1,21 +1,20 @@
 import { NextResponse } from 'next/server';
-import { Voice, VoiceSettings } from 'elevenlabs';
+import { ElevenLabsClient } from "elevenlabs";
 
-export async function POST(request) {
-  const { text, voiceId } = await request.json();
-
+export async function POST(req) {
   try {
-    const voice = new Voice({
-      voice_id: voiceId,
-      api_key: process.env.ELEVENLABS_API_KEY,
+    const { text } = await req.json();
+
+    const client = new ElevenLabsClient({
+      apiKey: process.env.ELEVENLABS_API_KEY,
     });
 
-    const voiceSettings = new VoiceSettings({
-      stability: 0.5,
-      similarity_boost: 0.75,
+    // Use the correct method to generate speech
+    const audioStream = await client.generate({
+      voice: '21m00Tcm4TlvDq8ikWAM',
+      text: text,
+      model_id: 'eleven_monolingual_v1',
     });
-
-    const audioStream = await voice.generateStream(text, voiceSettings);
 
     // Convert the audio stream to a buffer
     const chunks = [];
@@ -32,6 +31,6 @@ export async function POST(request) {
     });
   } catch (error) {
     console.error('Error generating speech:', error);
-    return NextResponse.json({ error: 'Failed to generate speech' }, { status: 500 });
+    return NextResponse.json({ error: 'Error generating speech' }, { status: 500 });
   }
 }

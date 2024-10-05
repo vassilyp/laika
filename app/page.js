@@ -14,7 +14,7 @@ export default function Home() {
           priority
         />
         <TextToSpeech />
-        {/* ... rest of your existing content ... */}
+        {/* ... rest of existing content ... */}
       </main>
       {/* ... footer ... */}
     </div>
