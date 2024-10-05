@@ -2,6 +2,8 @@
 - **Hamza**: Responsible for managing and developing the "Stories" feature.
 - **Vassily**: Focuses on data handling and API endpoints.
 - **Vidit**: Specializes in data visualization.
+- **Paige**: Backend integrations and API handling. 
+
 
 ## Frontend Team:
 - **Jesse**: Develops the landing page and the interface for the "Stories" feature.
