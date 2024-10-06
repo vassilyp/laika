@@ -54,5 +54,4 @@ export async function generate_from_text_input(projectId = 'PROJECT_ID', animald
 //   })
 //   .catch(error => {
 //     console.error("Error:", error);
-//   });
 

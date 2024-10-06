@@ -4,7 +4,6 @@ const end = 1369789200
 const radius = 1000 // TODO: this might need to be tweaked
 
 
-// Return Weather Data given coordinates
 async function getCoordinateAnimals(lat, lon, radius) {
     const url = `https://api.gbif.org/v1/occurrence/search?decimalLatitude=${lat}&decimalLongitude=${lon}&radius=${radius}&limit=5`;
     try {
