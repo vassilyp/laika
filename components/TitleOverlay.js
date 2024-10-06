@@ -25,7 +25,7 @@ export default function TitleOverlay({ startHandler }) {
 
       {loading ? <Throbber /> :
       <>
-        <div className='w-3/5 m-auto relative flex flex-col items-center mt-8'>
+        <div className='w-3/5 m-auto relative flex flex-col items-center justify-center mt-8'>
           <h1 className={`${kimberley.className} text-9xl text-center`}>PROJECT LAIKA</h1>
           <button className='border-solid border-2 border-white bg-transparent p-3
           shadow-white shadow-[6px_6px_0_0_rgb(255,255,255)] text-lg font-bold
