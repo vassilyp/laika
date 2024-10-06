@@ -78,7 +78,7 @@ const GlobeCanvas = () => {
         <MapPoint key={point} point={point} onClick={() => {
           if (!clicked) {
             clicked = true;
-            console.log(point)
+            locationHandler(point)
           }
         }} />
       ))}
