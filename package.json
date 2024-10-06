@@ -10,21 +10,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@google-cloud/text-to-speech": "^5.0.1",
     "axios": "^1.6.2",
     "dotenv": "^16.3.1",
     "elevenlabs": "^0.16.1",
     "next": "14.0.3",
     "openai": "^4.20.1",
-=======
-<<<<<<< HEAD
     "@google-cloud/vertexai": "^1.8.1",
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.9",
     "next": "14.2.14",
     "node-fetch": "^3.3.2",
->>>>>>> be0285f (update package versions)
     "react": "^18",
     "react-audio-player": "^0.17.0",
     "react-dom": "^18"
