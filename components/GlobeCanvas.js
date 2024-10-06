@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 import Loader from './Loader.js';
 import MapPoint from './MapPoint.js';
+import Stars from './Stars.js';
 
 const Globe = () => {
   const globe = useGLTF('./model/scene.gltf');
@@ -81,6 +82,8 @@ const GlobeCanvas = () => {
           }
         }} />
       ))}
+
+      <Stars />
 
       <Preload all />
     </Canvas>
