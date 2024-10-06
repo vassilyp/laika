@@ -18,6 +18,6 @@ async function generateStory(lat, lon) {
     // do chat GPT stuff here
 }
 
-let lat = 49.2827
-let lon = -123.1207
-generateStory(lat, lon)
+// let lat = 49.2827
+// let lon = -123.1207
+// generateStory(lat, lon)
