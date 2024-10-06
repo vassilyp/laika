@@ -1,9 +1,11 @@
-
-api_key = "49b7e58ca783f0a1caa247ae6ec60e6f"
+import SECRET from "./secret.json" with { type: "json" };
 
 // Return Weather Data given coordinates
-async function getCoordinateWeather(lat, lon, api_key) {
-    const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`;
+async function getCoordinateWeather(lat, lon) {
+    let api_key = SECRET[0].api_key
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`
+
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -11,12 +13,13 @@ async function getCoordinateWeather(lat, lon, api_key) {
         }
 
         const json = await response.json();
-        console.log(json);
+        console.log(json)
+
     } catch (error) {
         console.error(error.message);
     }
 }
 
-lat = 49.2827
-lon = -123.1207
-getCoordinateWeather(lat, lon, api_key)
+let lat = 49.2827
+let lon = -123.1207
+getCoordinateWeather(lat, lon)
