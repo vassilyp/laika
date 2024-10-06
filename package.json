@@ -11,24 +11,26 @@
   },
   "dependencies": {
 <<<<<<< HEAD
+    "@google-cloud/text-to-speech": "^5.0.1",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "elevenlabs": "^0.16.1",
+    "next": "14.0.3",
+    "openai": "^4.20.1",
+=======
+<<<<<<< HEAD
+    "@google-cloud/vertexai": "^1.8.1",
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.9",
     "next": "14.2.14",
+    "node-fetch": "^3.3.2",
+>>>>>>> be0285f (update package versions)
     "react": "^18",
-    "react-dom": "^18",
-    "three": "^0.169.0"
-=======
-    "elevenlabs": "^4.0.0",
-    "encoding": "^0.1.13",
-    "next": "^13.4.19",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
->>>>>>> AI
+    "react-audio-player": "^0.17.0",
+    "react-dom": "^18"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "14.2.14",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "eslint-config-next": "14.0.3"
   }
 }
