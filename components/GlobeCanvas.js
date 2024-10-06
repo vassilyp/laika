@@ -83,7 +83,7 @@ const GlobeCanvas = () => {
         }} />
       ))}
 
-      <Stars />
+      {/* <Stars /> */}
 
       <Preload all />
     </Canvas>

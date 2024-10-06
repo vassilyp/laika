@@ -5,7 +5,7 @@ import RightIcon from '@/imgs/right_icon.png'
 import Image from 'next/image';
 
 export default function SlidingDiv() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
     setIsVisible(prev => !prev);
