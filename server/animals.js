@@ -1,8 +1,4 @@
-// These need to be retrieved from the user clicking on the map
-let lat = 49
-let lon = -123
 
-// These are hardcoded but will be set permanantly
 const start = 1369728000
 const end = 1369789200
 const radius = 1000 // TODO: this might need to be tweaked
@@ -35,9 +31,10 @@ async function getCoordinateAnimals(lat, lon, radius) {
         console.log("kingdom: " + kingdom + "\nfamily: " + family + "\ngenus: " + genus + "\nspecies: " + species)
 
         return [kingdom, family, genus, species]
+
     } catch (error) {
         console.error(error.message);
     }
 }
 
-getCoordinateAnimals(lat, lon, radius);
+// getCoordinateAnimals(lat, lon, radius);

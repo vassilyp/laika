@@ -36,7 +36,7 @@ export async function generate_from_text_input(projectId = 'PROJECT_ID', animald
   }
 
   const audioBuffer = await ttsResponse.arrayBuffer();
-  
+
   // Save the audio file
   const audioFilePath = path.join(process.cwd(), 'public', 'test_audio', 'example.mp3');
   await fs.writeFile(audioFilePath, Buffer.from(audioBuffer));
@@ -54,4 +54,4 @@ export async function generate_from_text_input(projectId = 'PROJECT_ID', animald
 //   })
 //   .catch(error => {
 //     console.error("Error:", error);
-//   });
+

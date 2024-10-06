@@ -33,4 +33,5 @@ export async function POST(req) {
     console.error('Error generating speech:', error);
     return NextResponse.json({ error: 'Error generating speech' }, { status: 500 });
   }
+
 }
