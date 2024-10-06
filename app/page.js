@@ -1,6 +1,6 @@
 'use client'
-import TitleOverlay from "components/TitleOverlay"; // Removed the '@' symbol
 import { useState } from 'react'
+import TitleOverlay from "../components/TitleOverlay.js";
 import MainOverlay from '@/components/MainOverlay'
 import GlobeCanvas from '../components/GlobeCanvas.js';
 import useLocationData from "@/hooks/useLocationData.js";
