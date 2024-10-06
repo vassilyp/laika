@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createServer } from 'http';
 import fetch from 'node-fetch'; 
 
@@ -72,3 +73,6 @@ const server = createServer(async (req, res) => {
 server.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });
+=======
+
+>>>>>>> AI

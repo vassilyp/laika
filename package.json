@@ -10,12 +10,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.9",
     "next": "14.2.14",
     "react": "^18",
     "react-dom": "^18",
     "three": "^0.169.0"
+=======
+    "elevenlabs": "^4.0.0",
+    "encoding": "^0.1.13",
+    "next": "^13.4.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+>>>>>>> AI
   },
   "devDependencies": {
     "eslint": "^8",
