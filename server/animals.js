@@ -8,12 +8,11 @@ lon = -123
 // These are hardcoded but will be set permanantly
 start = 1369728000
 end = 1369789200
-radius = 1000
+radius = 1000 // this might need to be tweaked
 
 
 // Return Weather Data given coordinates
 async function getCoordinateWeather(lat, lon, radius) {
-    // TODO: May want to add params to filter out bacteria, etc
     const url = `https://api.gbif.org/v1/occurrence/search?decimalLatitude=${lat}&decimalLongitude=${lon}&radius=${radius}&limit=5`;
     try {
         const response = await fetch(url, {
@@ -28,7 +27,10 @@ async function getCoordinateWeather(lat, lon, radius) {
         }
 
         const json = await response.json();
-        console.log(json);
+
+        // filters only animalia results
+        const animaliaResults = json.results.filter(result => result.kingdom === 'Animalia');
+        console.log(animaliaResults);
     } catch (error) {
         console.error(error.message);
     }
