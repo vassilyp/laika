@@ -40,20 +40,20 @@ const GlobeCanvas = () => {
   const fibonacciSphere = (samples) => {
     const points = [];
     const phi = Math.PI * (Math.sqrt(5) - 1);
-  
+
     for (let i = 0; i < samples; i++) {
-      const scale =10.7;
+      const scale = 10.7;
       const y = 1 - (i / (samples - 1)) * 2;
-      const radius = Math.sqrt(1 - y * y); 
+      const radius = Math.sqrt(1 - y * y);
       const theta = phi * i;
       const x = Math.cos(theta) * radius;
       const z = Math.sin(theta) * radius;
-      points.push([x/scale, y/scale, z/scale]); 
+      points.push([x / scale, y / scale, z / scale]);
     }
-  
+
     return points;
   }
-  
+
   const points = fibonacciSphere(2000);
 
   return (
@@ -62,17 +62,20 @@ const GlobeCanvas = () => {
       frameloop='demand'
       shadows
       dpr={[1, 2]}
-      camera={{ position: [0, 0, -15], fov: 1 }}
       gl={{ preserveDrawingBuffer: true }}
+      camera={{ position: [0.4, 0, 0.4], fov: 40 }}
     >
       <Suspense fallback={<Loader />}>
-        <OrbitControls
-          autoRotate={true}
-          enableZoom={true}
-          autoRotateSpeed={0.8}
-        />
         <Globe />
       </Suspense>
+
+      <OrbitControls
+        enableZoom={false}
+        autoRotate={true}
+        autoRotateSpeed={1}
+        enableDamping={true}
+        dampingFactor={0.05}
+      />
 
       {points.map((point) => (
         <MapPoint key={point} point={point} onClick={() => {
