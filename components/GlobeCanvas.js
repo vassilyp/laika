@@ -17,15 +17,15 @@ const Globe = () => {
 
       <primitive
         object={globe.scene}
-        scale={0.1}
-        position={[0, -0.11, 0]}
+        scale={1.2}
+        position={[0, -1.325, 0]}
         rotation={[0, 3.15, 0]}
       />
     </mesh>
   )
 }
 
-const GlobeCanvas = () => {
+const GlobeCanvas = ({ locationHandler }) => {
   let clicked = false;
 
   // const coords2Cart = ([latCart, lonCart]) => {
@@ -42,7 +42,7 @@ const GlobeCanvas = () => {
     const phi = Math.PI * (Math.sqrt(5) - 1);
 
     for (let i = 0; i < samples; i++) {
-      const scale = 10.7;
+      const scale = 0.9;
       const y = 1 - (i / (samples - 1)) * 2;
       const radius = Math.sqrt(1 - y * y);
       const theta = phi * i;
@@ -58,12 +58,11 @@ const GlobeCanvas = () => {
 
   return (
     <Canvas
-      className='bg-black/90'
+      className='bg-black/95'
       frameloop='demand'
-      shadows
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
-      camera={{ position: [0.4, 0, 0.4], fov: 40 }}
+      camera={{ position: [4, 0, 4], fov: 40 }}
     >
       <Suspense fallback={<Loader />}>
         <Globe />
@@ -73,20 +72,20 @@ const GlobeCanvas = () => {
         enableZoom={false}
         autoRotate={true}
         autoRotateSpeed={1}
-        enableDamping={true}
-        dampingFactor={0.05}
       />
 
       {points.map((point) => (
         <MapPoint key={point} point={point} onClick={() => {
           if (!clicked) {
             clicked = true;
-            locationHandler(point)
+            if (locationHandler) {
+              locationHandler(point)
+            }
           }
         }} />
       ))}
 
-      {/* <Stars /> */}
+      <Stars />
 
       <Preload all />
     </Canvas>

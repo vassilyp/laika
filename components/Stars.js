@@ -5,7 +5,7 @@ import MapPoint from './MapPoint';
 const Star = ({ point }) => {
   return (
     <mesh position={point}>
-      <sphereGeometry args={[0.001, 32, 32]} />
+      <sphereGeometry args={[0.007, 32, 32]} />
       <meshStandardMaterial color={'white'} />
     </mesh>
   );
@@ -17,7 +17,7 @@ const Stars = () => {
     const phi = Math.PI * (Math.sqrt(5) - 1);
   
     for (let i = 0; i < samples; i++) {
-      const scale = 1;
+      const scale = 0.15;
       const y = 1 - (i / (samples - 1)) * 2;
       const radius = Math.sqrt(1 - y * y); 
       const theta = phi * i;

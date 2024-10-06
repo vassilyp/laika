@@ -26,7 +26,7 @@ export default function SlidingDiv({ locationData }) {
           >
             <Image src={isVisible ? CloseIcon : RightIcon} alt='x' width={35} height={35} />
           </button>
-          {isVisible && 
+          {isVisible && locationData &&
           <>
             <div>
               {locationData.name}
