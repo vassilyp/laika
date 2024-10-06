@@ -3,14 +3,20 @@ import { useState } from 'react'
 import CloseIcon from '@/imgs/close_icon.png'
 import RightIcon from '@/imgs/right_icon.png'
 import Image from 'next/image';
+// import AudioPlayer from './AudioPlayer';
 
-export default function SlidingDiv({ locationData }) {
+export default function SlidingDiv() {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
     setIsVisible(prev => !prev);
   };
 
+  let locationData = {
+    "city": "Vancouver",
+    "country": "CA",
+    "content": "In Vancouver, the lush temperate rainforest thrives under a mild, coastal climate, providing a home for an array of native animals. Majestic bald eagles soar through the skies, while black bears wander the dense forests in search of berries. Along the shores, playful harbor seals can be seen lounging on rocky outcrops, keeping a watchful eye on passing orcas. This harmonious balance of wildlife and environment showcases the natural beauty and rich biodiversity of the region."
+  }
   return (
     <div className="relative overflow-hidden">
       <div 
@@ -29,12 +35,15 @@ export default function SlidingDiv({ locationData }) {
           {isVisible && locationData &&
           <>
             <div>
-              {locationData.name}
+              {/* <p>Placeholder Location</p> */}
+              <h2>{locationData.city}, {locationData.country} </h2>
+              <br></br>
+              {locationData.content}
             </div>
             <div>
               <p>{locationData.story}</p>
             </div>
-            <audio src="../test_audio/example.mp3" controls className='mb-8'></audio>
+            <audio controls href="https://drive.google.com/file/d/1EcnYoHdwHhfglxDu8KYAjeo6I1UtD6HC/view?usp=sharing"></audio>
           </>}
         </div>
       </div>
