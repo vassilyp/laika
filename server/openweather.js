@@ -13,13 +13,13 @@ async function getCoordinateWeather(lat, lon) {
         }
 
         const json = await response.json();
-        console.log(json)
+        return json
 
     } catch (error) {
         console.error(error.message);
     }
 }
 
-let lat = 49.2827
-let lon = -123.1207
-getCoordinateWeather(lat, lon)
+// let lat = 49.2827
+// let lon = -123.1207
+// getCoordinateWeather(lat, lon)
