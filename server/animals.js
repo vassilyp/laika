@@ -1,9 +1,14 @@
+// These need to be retrieved from the user clicking on the map
+let lat = 49
+let lon = -123
 
 // These are hardcoded but will be set permanantly
 const start = 1369728000
 const end = 1369789200
+const radius = 1000 // TODO: this might need to be tweaked
 
-export async function getCoordinateAnimals(lat, lon, radius) {
+
+async function getCoordinateAnimals(lat, lon, radius) {
     const url = `https://api.gbif.org/v1/occurrence/search?decimalLatitude=${lat}&decimalLongitude=${lon}&radius=${radius}&limit=5`;
     try {
         const response = await fetch(url, {
@@ -22,10 +27,17 @@ export async function getCoordinateAnimals(lat, lon, radius) {
         // filters only animalia results
         const animaliaResults = json.results.filter(result => result.kingdom === 'Animalia');
 
-        return animaliaResults
+        const kingdom = animaliaResults[0].kingdom
+        const family = animaliaResults[0].family
+        const genus = animaliaResults[0].genus
+        const species = animaliaResults[0].species
+
+        console.log("kingdom: " + kingdom + "\nfamily: " + family + "\ngenus: " + genus + "\nspecies: " + species)
+
+        return [kingdom, family, genus, species]
     } catch (error) {
         console.error(error.message);
     }
 }
 
-export default getCoordinateAnimals
+getCoordinateAnimals(lat, lon, radius);
