@@ -4,7 +4,7 @@ import CloseIcon from '@/imgs/close_icon.png'
 import RightIcon from '@/imgs/right_icon.png'
 import Image from 'next/image';
 
-export default function SlidingDiv() {
+export default function SlidingDiv({ locationData }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -29,10 +29,10 @@ export default function SlidingDiv() {
           {isVisible && 
           <>
             <div>
-              Image goes here!
+              {locationData.name}
             </div>
             <div>
-              <p>Content of story goes here!</p>
+              <p>{locationData.story}</p>
             </div>
             <audio src="../test_audio/example.mp3" controls className='mb-8'></audio>
           </>}
