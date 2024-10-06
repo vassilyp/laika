@@ -11,8 +11,8 @@ export default function Home() {
     <>
       {!start && <TitleOverlay startHandler={setStart}/>}
       {start && <MainOverlay />}
-      <GlobeCanvas />
-      <div className="w-[500px] h-[500px] bg-blue-500 rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+      <div className='w-screen h-screen'>
+        <GlobeCanvas />
       </div>
     </>
   );
