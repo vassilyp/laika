@@ -37,6 +37,18 @@ const GlobeCanvas = ({ locationHandler }) => {
   //   return [x, y, z];
   // }
 
+  const cart2Coords = ([x, y, z]) => {
+    const R = Math.sqrt(x * x + y * y + z * z);
+
+    const latRad = Math.asin(y / R);  
+    const lonRad = Math.atan2(-z, x); 
+  
+    const lat = (latRad * 180) / Math.PI; 
+    const lon = (lonRad * 180) / Math.PI; 
+  
+    return [lat, lon];
+  };
+
   const fibonacciSphere = (samples) => {
     const points = [];
     const phi = Math.PI * (Math.sqrt(5) - 1);
@@ -78,8 +90,9 @@ const GlobeCanvas = ({ locationHandler }) => {
         <MapPoint key={point} point={point} onClick={() => {
           if (!clicked) {
             clicked = true;
+            console.log(cart2Coords(point));
             if (locationHandler) {
-              locationHandler(point)
+              locationHandler(point);
             }
           }
         }} />
