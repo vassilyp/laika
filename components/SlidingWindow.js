@@ -22,7 +22,7 @@ export default function SlidingDiv({locationData}) {
           w-1/2 h-2/3 z-10`}
       >
         <div className='bg-gray-500 w-full h-full absolute top-0 left-0 opacity-70 z-10' />
-        <div className='absolute z-20 flex flex-col justify-between w-full h-full'>
+        <div className='absolute z-20 flex flex-col justify-between w-90% h-80%'>
           <button 
             onClick={toggleVisibility}
             className='invert mb-8'
@@ -31,13 +31,13 @@ export default function SlidingDiv({locationData}) {
           </button>
           {isVisible && locationData &&
           <>
-            <div>
-              {locationData.name}
+            <div className='text-2xl mb-5'>
+                {locationData.name}
             </div>
-            <div>
-              <p>{locationData.story}</p>
+            <div className='mt-5'>
+                <p>{locationData.story}</p>
+              {/* <audio src="../test_audio/example.mp3" controls className='mb-8'></audio> */}
             </div>
-            <audio src="../test_audio/example.mp3" controls className='mb-8'></audio>
           </>}
         </div>
       </div>

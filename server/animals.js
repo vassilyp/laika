@@ -26,15 +26,15 @@ async function getCoordinateAnimals(lat, lon, radius) {
         const animaliaResults = json.results.filter(result => result.kingdom === 'Animalia');
 
         const length = animaliaResults.length
-        console.log(length)
+        //console.log(length)
 
         const randIdx = Math.floor(Math.random() * (length - 1))
-        console.log(randIdx)
+        //console.log(randIdx)
 
-        const kingdom = animaliaResults[randIdx].kingdom
-        const family = animaliaResults[randIdx].family
-        const genus = animaliaResults[randIdx].genus
-        const species = animaliaResults[randIdx].species
+        const kingdom = animaliaResults[randIdx]?.kingdom
+        const family = animaliaResults[randIdx]?.family
+        const genus = animaliaResults[randIdx]?.genus
+        const species = animaliaResults[randIdx]?.species
 
         // console.log("kingdom: " + kingdom + "\nfamily: " + family + "\ngenus: " + genus + "\nspecies: " + species)
 

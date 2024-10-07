@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 
 export default function useLocationData(location) {
-
     const [locationData, setLocationData] = useState({})
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
@@ -12,17 +11,21 @@ export default function useLocationData(location) {
         audioURL: "audio.com"
     };
 
-    useEffect(() => {
-        const getData = async () => {
-            const response = await fetch("https://localhost:3000/api/story");
-            const data = response.json();
-            return data;
+    useEffect( () => {
+        const getData =
+         async () => {
+            if (location) {
+              const lat = location[0].toFixed(2)
+              const lon = location[1].toFixed(2)
+              const response = await fetch(`http://localhost:3000/api/story/${lat},${lon}`);
+              const data = await response.json();
+              console.log(data)
+              setLocationData(data);
+              setLoading(false);
+            }
         }
-        // const data = getData();
-        const data = TEST_DATA;
-        setLocationData(data);
-        setLoading(false);
 
+        getData()
     }, [location])
 
     return [locationData, loading, error]
