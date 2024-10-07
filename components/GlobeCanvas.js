@@ -90,9 +90,8 @@ const GlobeCanvas = ({ locationHandler }) => {
         <MapPoint key={point} point={point} onClick={() => {
           if (!clicked) {
             clicked = true;
-            console.log(cart2Coords(point));
             if (locationHandler) {
-              locationHandler(point);
+              locationHandler(cart2Coords(point));
             }
           }
         }} />

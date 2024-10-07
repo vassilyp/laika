@@ -15,14 +15,11 @@ export async function getCoordinateWeather(lat, lon) {
         }
 
         const json = await response.json();
-        // console.log(JSON.stringify(json))
         return json
 
     } catch (error) {
         console.error(error.message);
     }
 }
-
-// getCoordinateWeather(49, -123)
 
 export default getCoordinateWeather

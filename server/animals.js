@@ -46,5 +46,3 @@ async function getCoordinateAnimals(lat, lon, radius) {
 }
 
 export default getCoordinateAnimals
-
-// getCoordinateAnimals(lat, lon, radius);

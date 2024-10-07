@@ -4,12 +4,15 @@ import CloseIcon from '@/imgs/close_icon.png'
 import RightIcon from '@/imgs/right_icon.png'
 import Image from 'next/image';
 
-export default function SlidingDiv({ locationData }) {
+export default function SlidingDiv({locationData}) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
     setIsVisible(prev => !prev);
   };
+
+  console.log("Sliding div")
+  console.log(locationData)
 
   return (
     <div className="relative overflow-hidden">
