@@ -34,10 +34,10 @@ async function getCoordinateAnimals(lat, lon, radius) {
         let animalSet = new Set()
 
         for (let i = 0; i < length; i++) {
-          const kingdom = animaliaResults[i].kingdom
-          const family = animaliaResults[i].family
-          const genus = animaliaResults[i].genus
-          const species = animaliaResults[i].species
+          const kingdom = animaliaResults[i]?.kingdom
+          const family = animaliaResults[i]?.family
+          const genus = animaliaResults[i]?.genus
+          const species = animaliaResults[i]?.species
 
           let animalStuff = [kingdom, family, genus, species]
           // need to add if statement for uniqueness
