@@ -20,10 +20,10 @@ export async function generate_from_text_input(projectId = 'PROJECT_ID', animald
   var prompt = null;
   if (animaldata.every(item => item === undefined)){
     prompt = "Given this data on the weather:  " + 
-    JSON.stringify(climatedata) + ", please write a short story (3 sentences) about a fictional character (tree, animal or person) and their experience with the climate change dangers or triumphs for this place. If there is no data on animals then give me a story about a person and relate it to the climate data. Don't tell me you need information, just make it up!";
+    JSON.stringify(climatedata) + ", please write a happy short story (3 sentences) about a fictional character (tree, animal or person) and their experience with the climate change for this place. If there is no data on animals then give me a story about a person and relate it to the climate data. Don't tell me you need information, just make it up!";
   } else {
     prompt = "Given this data on animals "+ animaldata + " for " + place + ", and the climate weather data:  " + 
-    climatedata + ", please write a short story (3 sentences) about a fictional character (tree, animal or person) and their experience with the climate change dangers or triumphs for this place. If there is no data on animals then give me a story about a person and relate it to the climate data. Don't tell me you need information, just make it up!";
+    climatedata + ", please write a happy short story (3 sentences) about a fictional character (tree, animal or person) and their experience with the climate change for this place. If there is no data on animals then give me a story about a person and relate it to the climate data. Don't tell me you need information, just make it up!";
   }
 
 
