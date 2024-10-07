@@ -17,7 +17,7 @@ export async function generate_from_text_input(projectId = 'PROJECT_ID', animald
   });
 
   const prompt = "Given this data on animals "+ animaldata + " for " + place + ", and the climate weather data:  " + 
-  climatedata + ", please write a short story (3 sentences) about a fictional character (tree, animal or person) and their experience with the climate change dangers or triumphs for this place. Give a story even if not enought data.";
+  climatedata + ", please write a short story (3 sentences) about the animal's experience with the climate change dangers or triumphs for this place. Give a story even if not enought data.";
 
   const resp = await generativeModel.generateContent(prompt);
   const contentResponse = await resp.response;

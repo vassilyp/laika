@@ -25,6 +25,6 @@ async function generateStory(lat, lon) {
     return aLittleStory
 }
 
-let lat = 19.88
-let lon = -155.665
+let lat = 53.546
+let lon =  -113.493
 generateStory(lat, lon)
