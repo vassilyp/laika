@@ -35,4 +35,3 @@ async function convertTextToSpeech(text) {
 }
 
 export default convertTextToSpeech;
-

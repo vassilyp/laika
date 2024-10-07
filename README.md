@@ -49,7 +49,7 @@
 ### Backend Team
 - **Hamza**: Responsible for managing and developing the "Stories" feature, ensuring engaging and informative content.
 - **Vassily**: Focuses on data handling and API endpoints, connecting the application to real-time climate and biodiversity data.
-- **Vidit**: Specializes in data visualization, creating animations, audio and visual elements to represent climate data dynamically.
+- **Vidit**: Specializes in data visualization, creating animations, audio and visual elements to represent climate data dynamically, along with handling CORS and deployment.
 - **Paige**: Leads backend integrations and API handling, streamlining the flow of data to enhance the storytelling experience.
 
 ### Frontend Team

@@ -1,14 +1,26 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import CloseIcon from '@/imgs/close_icon.png'
 import RightIcon from '@/imgs/right_icon.png'
 import Image from 'next/image';
 
 export default function SlidingDiv({locationData}) {
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isAudioLoading, setIsAudioLoading] = useState(true);
 
   const toggleVisibility = () => {
     setIsVisible(prev => !prev);
+  };
+
+  useEffect(() => {
+    if (locationData) {
+      setIsLoading(false);
+    }
+  }, [locationData]);
+
+  const handleAudioLoad = () => {
+    setIsAudioLoading(false);
   };
 
   console.log("Sliding div")
@@ -29,16 +41,31 @@ export default function SlidingDiv({locationData}) {
           >
             <Image src={isVisible ? CloseIcon : RightIcon} alt='x' width={35} height={35} />
           </button>
-          {isVisible && locationData &&
-          <>
-            <div className='text-2xl mb-5'>
-                {locationData.name}
-            </div>
-            <div className='mt-5'>
-                <p>{locationData.story}</p><br/>
-              <audio src={locationData.audioURL} controls className='mb-8'></audio>
-            </div>
-          </>}
+          {isVisible && (
+            isLoading ? (
+              <div className="text-white text-center">
+                <p className="text-xl">Loading story...</p>
+              </div>
+            ) : locationData && (
+              <>
+                <div className='text-2xl mb-5'>
+                  {locationData.name}
+                </div>
+                <div className='mt-5'>
+                  <p>{locationData.story}</p><br/>
+                  {isAudioLoading && (
+                    <p className="text-white text-center mb-2">Loading audio...</p>
+                  )}
+                  <audio 
+                    src={locationData.audioURL} 
+                    controls 
+                    className='mb-8'
+                    onCanPlayThrough={handleAudioLoad}
+                  ></audio>
+                </div>
+              </>
+            )
+          )}
         </div>
       </div>
     </div>
