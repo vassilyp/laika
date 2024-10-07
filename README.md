@@ -2,7 +2,7 @@
 
 [![Watch This!](https://img.youtube.com/vi/GMZPrWuguDg/1.jpg)](https://www.youtube.com/watch?v=GMZPrWuguDg)
 
-Visit Project Laika live at https://www.projectlaika.com
+Visit Project Laika live at https://www.projectlaika.earth
 
 # Project Laika 🌍
 
