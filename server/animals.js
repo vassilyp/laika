@@ -31,6 +31,21 @@ async function getCoordinateAnimals(lat, lon, radius) {
         const randIdx = Math.floor(Math.random() * (length - 1))
         //console.log(randIdx)
 
+        let animalSet = new Set()
+
+        for (let i = 0; i < length; i++) {
+          const kingdom = animaliaResults[i].kingdom
+          const family = animaliaResults[i].family
+          const genus = animaliaResults[i].genus
+          const species = animaliaResults[i].species
+
+          let animalStuff = [kingdom, family, genus, species]
+          // need to add if statement for uniqueness
+          animalSet.add(animalStuff)
+          //console.log(animalSet)
+
+        }
+
         const kingdom = animaliaResults[randIdx]?.kingdom
         const family = animaliaResults[randIdx]?.family
         const genus = animaliaResults[randIdx]?.genus
