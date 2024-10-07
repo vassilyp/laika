@@ -5,6 +5,8 @@ const radius = 1000 // TODO: this might need to be tweaked
 
 
 async function getCoordinateAnimals(lat, lon, radius) {
+  console.log("coordinate animals api called\n")
+
     const url = `https://api.gbif.org/v1/occurrence/search?decimalLatitude=${lat}&decimalLongitude=${lon}&radius=${radius}&limit=5`;
     try {
         const response = await fetch(url, {
@@ -23,12 +25,18 @@ async function getCoordinateAnimals(lat, lon, radius) {
         // filters only animalia results
         const animaliaResults = json.results.filter(result => result.kingdom === 'Animalia');
 
-        const kingdom = animaliaResults[0].kingdom
-        const family = animaliaResults[0].family
-        const genus = animaliaResults[0].genus
-        const species = animaliaResults[0].species
+        const length = animaliaResults.length
+        console.log(length)
 
-        console.log("kingdom: " + kingdom + "\nfamily: " + family + "\ngenus: " + genus + "\nspecies: " + species)
+        const randIdx = Math.floor(Math.random() * (length - 1))
+        console.log(randIdx)
+
+        const kingdom = animaliaResults[randIdx].kingdom
+        const family = animaliaResults[randIdx].family
+        const genus = animaliaResults[randIdx].genus
+        const species = animaliaResults[randIdx].species
+
+        // console.log("kingdom: " + kingdom + "\nfamily: " + family + "\ngenus: " + genus + "\nspecies: " + species)
 
         return [kingdom, family, genus, species]
 
@@ -36,5 +44,7 @@ async function getCoordinateAnimals(lat, lon, radius) {
         console.error(error.message);
     }
 }
+
+export default getCoordinateAnimals
 
 // getCoordinateAnimals(lat, lon, radius);

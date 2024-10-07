@@ -15,7 +15,7 @@ export default function Home() {
       {!start && <TitleOverlay startHandler={setStart}/>}
       {start && <MainOverlay locationData={locationData} />}
       <div className='w-screen h-screen'>
-        <GlobeCanvas locationHandler={setLocation} allowClick={locationData != []} />
+       <GlobeCanvas locationHandler={setLocation} allowClick={locationData != []} />
       </div>
     </>
   );

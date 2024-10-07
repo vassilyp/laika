@@ -1,5 +1,6 @@
 import getCoordinateWeather from './openweather.js'
 import getCoordinateAnimals from './animals.js'
+import { generate_from_text_input } from './vertex.js';
 import SECRET from "./secret.json" with { type: "json" };
 
 // Given coordinates, return a story in text
@@ -9,15 +10,21 @@ async function generateStory(lat, lon) {
         return
     }
 
-    const weatherJSON = await getCoordinateWeather(lat, lon)
+    const climatedata = await getCoordinateWeather(lat, lon)
+    console.log(climatedata)
 
-    const radius = 1000  // TODO: fine tune this
+    const radius = 10000  // TODO: fine tune this
+    const place = climatedata.name // change this 
 
-    const animalsJSON = await getCoordinateAnimals(Math.round(lat), Math.round(lon), radius)
+    const animaldata = await getCoordinateAnimals(Math.round(lat), Math.round(lon), radius)
+    console.log(animaldata)
 
-    // do chat GPT stuff here
+    const aLittleStory = await generate_from_text_input("astute-strategy-406904", animaldata, climatedata, place)
+
+    console.log(aLittleStory)
+    return aLittleStory
 }
 
-// let lat = 49.2827
-// let lon = -123.1207
-// generateStory(lat, lon)
+let lat = 19.88
+let lon = -155.665
+generateStory(lat, lon)

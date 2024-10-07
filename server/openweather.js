@@ -4,6 +4,7 @@ import SECRET from "./secret.json" with { type: "json" };
 export async function getCoordinateWeather(lat, lon) {
 
     let api_key = SECRET.api_key
+    console.log("coordinate weather api called\n")
 
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`
 
@@ -14,6 +15,7 @@ export async function getCoordinateWeather(lat, lon) {
         }
 
         const json = await response.json();
+        // console.log(JSON.stringify(json))
         return json
 
     } catch (error) {
@@ -21,7 +23,6 @@ export async function getCoordinateWeather(lat, lon) {
     }
 }
 
-// let lat = 49.2827
-// let lon = -123.1207
-// getCoordinateWeather(lat, lon)
+// getCoordinateWeather(49, -123)
+
 export default getCoordinateWeather
