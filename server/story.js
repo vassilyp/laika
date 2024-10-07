@@ -1,6 +1,7 @@
 import getCoordinateWeather from './openweather.js'
 import getCoordinateAnimals from './animals.js'
 import { generate_from_text_input } from './vertex.js';
+import convertTextToSpeech from './TextToSpeech.js'; // Updated to match the correct casing
 
 // Given coordinates, return a story in text
 export async function generateStory(lat, lon) {
@@ -22,17 +23,16 @@ export async function generateStory(lat, lon) {
 
     console.log(aLittleStory)
 
-    const TEST_DATA = {
+    // Convert the story to speech and get the audio URL
+    const audioURL = await convertTextToSpeech(aLittleStory);
+
+    const storyData = {
         name: place,
         story: aLittleStory,
-        audioURL: "audio.com"
+        audioURL: audioURL
     };
 
-    return TEST_DATA
+    return storyData;
 }
-
-// let lat = 19.88
-// let lon = -155.665
-// generateStory(lat, lon)
 
 export default generateStory

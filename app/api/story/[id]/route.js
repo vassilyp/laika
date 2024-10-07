@@ -1,4 +1,4 @@
-import generateStory from '..\\server\\story.js';
+import generateStory from '@/server/story.js';
 
 export async function GET(req, { params }) {
     const lat = params.id.split(",")[0];

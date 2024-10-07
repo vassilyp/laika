@@ -35,8 +35,8 @@ export default function SlidingDiv({locationData}) {
                 {locationData.name}
             </div>
             <div className='mt-5'>
-                <p>{locationData.story}</p>
-              {/* <audio src="../test_audio/example.mp3" controls className='mb-8'></audio> */}
+                <p>{locationData.story}</p><br/>
+              <audio src={locationData.audioURL} controls className='mb-8'></audio>
             </div>
           </>}
         </div>

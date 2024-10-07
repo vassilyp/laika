@@ -1,4 +1,4 @@
-import SECRET from "./secret.json" with { type: "json" };
+import SECRET from "/secret.json" with { type: "json" };
 
 // Return Weather Data given coordinates
 export async function getCoordinateWeather(lat, lon) {

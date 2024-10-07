@@ -1,69 +1,38 @@
-'use client';
+import fetch from 'node-fetch';
 
-import { useState } from 'react';
+async function convertTextToSpeech(text) {
+  try {
+    const response = await fetch('https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL', {
+      method: 'POST',
+      headers: {
+        'Accept': 'audio/mpeg',
+        'Content-Type': 'application/json',
+        'xi-api-key': process.env.ELEVENLABS_API_KEY
+      },
+      body: JSON.stringify({
+        text: text,
+        model_id: 'eleven_monolingual_v1',
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.5
+        }
+      })
+    });
 
-export default function TextToSpeech() {
-  const [text, setText] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [audioUrl, setAudioUrl] = useState(null);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const response = await fetch('/api/tts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          text: text,
-          voiceId: 'EXAVITQu4vr4xnSDxMaL', // Sarah's voice ID
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to generate speech');
-      }
-
-      const audioBlob = await response.blob();
-      const url = URL.createObjectURL(audioBlob);
-      setAudioUrl(url);
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to generate speech. Please try again.');
-    } finally {
-      setIsLoading(false);
+    if (!response.ok) {
+      throw new Error('Failed to generate speech');
     }
-  };
 
-  return (
-    <div className="max-w-md mx-auto mt-10">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Enter text to convert to speech"
-          className="w-full p-2 border border-gray-300 rounded"
-          rows="4"
-        />
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
-        >
-          {isLoading ? 'Generating...' : 'Generate Speech'}
-        </button>
-      </form>
-      {audioUrl && (
-        <div className="mt-4">
-          <audio controls src={audioUrl} className="w-full">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      )}
-    </div>
-  );
+    const audioBuffer = await response.arrayBuffer();
+    const audioBase64 = Buffer.from(audioBuffer).toString('base64');
+    const audioUrl = `data:audio/mpeg;base64,${audioBase64}`;
+
+    return audioUrl;
+  } catch (error) {
+    console.error('Error in text-to-speech conversion:', error);
+    throw error;
+  }
 }
+
+export default convertTextToSpeech;
 
